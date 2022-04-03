@@ -1,24 +1,33 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
+import HomePage from './components/HomePage/HomePage'
+import HomePage2 from './components/HomePage2/HomePage2'
+
 
 function App() {
+  const [toggle, setToggle] = useState(false);
+  const onChangeToggle = () => {
+    setToggle(!toggle);
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+    <div>
+      <div style={{ width: '100%', textAlign: 'center', height: '50px' }}>
+        <button onClick={() => onChangeToggle()}>
+          Change parrent
+        </button>
+      </div>
+      {toggle ?
+        <HomePage /> :
+        <HomePage2 />
+
+
+      }
     </div>
+
+
+
+
   );
 }
 
